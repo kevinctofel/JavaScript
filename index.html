@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>JavaScript demo page</title>
+</head>
+
+<body>
+  <h1>JavaScript demo to show current value of crypto</h1>
+  <form>
+    <label form="coin">Choose a cryptocurrency:</label>
+    <select id="coin" name="coins">
+      <option value="BTC">Bitcoin</option>
+      <option value="LTC">Litecoin</option>
+      <option value="ETC">Etherium</option>
+      <input type="button" value="Submit" onclick="printCoin()">
+      <input type="reset" onclick="location.reload()">
+    </select>
+  </form>
+  <p id="choice"></p>
+
+  <script>
+    function printCoin() {
+      currency = document.querySelector('#coin');
+      console.log(currency.value);
+      document.getElementById("choice").innerHTML = "You chose: " + currency.value;
+    }
+
+  </script>
+</body>
+
+</html>
