@@ -21,12 +21,31 @@
     </select>
   </form>
   <p id="choice"></p>
+  <p id="choicePrice"></p>
+
+  
 
   <script>
     function printCoin() {
       currency = document.querySelector('#coin');
       console.log(currency.value);
       document.getElementById("choice").innerHTML = "You chose: " + currency.value;
+      getPrice();
+    }
+
+    function getPrice() {
+      let requestURL = 'http://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&api_key=e29b700b7cfd70faa0de907743ea4e186cd2e1f2f3b999332f7718be49feb6ae';
+      var request = new XMLHttpRequest();
+      request.open('GET', requestURL, true);
+      request.responseType = 'text';
+      request.send();
+      var coinPrice = request.status;
+      
+      console.log(coinPrice);
+  
+    
+      document.getElementById("choicePrice").innerHTML = "Current price is: $" + coinPrice;
+
     }
 
   </script>
