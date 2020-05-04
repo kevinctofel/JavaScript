@@ -42,9 +42,9 @@
       request.onload = function () {
         if (request.readyState === request.DONE) {
           var coinPrice = request.responseText;
-          console.log(coinPrice);
+          // console.log(coinPrice);
           var coinPriceData = [].slice.call(coinPrice)
-          console.log(coinPriceData);
+          // console.log(coinPriceData);
           var i;
           var currentValueUSD = "";
           for (i = 7; i < (coinPriceData.length-1); i++) {
