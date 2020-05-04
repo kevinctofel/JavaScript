@@ -37,16 +37,22 @@
       let requestURL = 'https://min-api.cryptocompare.com/data/price?fsym=' + currency.value + '&tsyms=USD&api_key=e29b700b7cfd70faa0de907743ea4e186cd2e1f2f3b999332f7718be49feb6ae';
       var request = new XMLHttpRequest();
       request.open('GET', requestURL, true);
-      request.responseType = '';
+      request.responseType = 'text';
       request.send();
       request.onload = function () {
         if (request.readyState === request.DONE) {
           var coinPrice = request.responseText;
           console.log(coinPrice);
-          document.getElementById("choicePrice").innerHTML = "Current price is: $" + coinPrice;
+          var coinPriceData = [].slice.call(coinPrice)
+          console.log(coinPriceData);
+          var i;
+          var currentValueUSD = "";
+          for (i = 7; i < (coinPriceData.length-1); i++) {
+            currentValueUSD = currentValueUSD + coinPriceData[i];
+          }
         }
+        document.getElementById("choicePrice").innerHTML = "Current price is: $" + currentValueUSD;
       }
-
     }
 
   </script>
